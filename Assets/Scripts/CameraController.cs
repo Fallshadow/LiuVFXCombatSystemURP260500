@@ -31,11 +31,11 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         _invertXVal = (invertX) ? -1 : 1;
-        _invertYVal = (invertY) ? 1 : -1;
+        _invertYVal = (invertY) ? -1 : 1;
         
-        _rotationX += Input.GetAxis("Mouse Y") * _invertYVal * rotationSpeed;
+        _rotationX += Input.GetAxis("Camera Y") * _invertYVal * rotationSpeed;
         _rotationX =  Mathf.Clamp(_rotationX, minVerticalAngle, maxVerticalAngle);
-        _rotationY += Input.GetAxis("Mouse X") * _invertXVal * rotationSpeed;
+        _rotationY += Input.GetAxis("Camera X") * _invertXVal * rotationSpeed;
         
         var targetPosition = followTarget.position + new Vector3(framingOffset.x, framingOffset.y);
         var targetRotation = Quaternion.Euler(_rotationX, _rotationY, 0);
