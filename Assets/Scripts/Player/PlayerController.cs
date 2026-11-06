@@ -21,16 +21,25 @@ public class PlayerController : MonoBehaviour
     CameraController cameraController;
     Animator animator;
     CharacterController characterController;
-
+    
+    MeeleFighter meeleFighter;
+    
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        meeleFighter =  GetComponent<MeeleFighter>();
     }
 
     void Update()
     {
+        if (meeleFighter.InAction)
+        {
+            animator.SetFloat("MoveAmount", 0);
+            return;
+        }
+        
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         
