@@ -9,14 +9,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotateSpeed = 500f;
     
+    [Header("Ground Check Group")]
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private Vector3 groundCheckOffset;
+    [SerializeField] LayerMask groundLayer;
+    bool isGrounded;
+    
+    float ySpeed;
+    
     Quaternion targetRotation;
     CameraController cameraController;
     Animator animator;
+    CharacterController characterController;
 
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -29,13 +39,39 @@ public class PlayerController : MonoBehaviour
 
         float moveAmount = Mathf.Clamp01(Mathf.Abs(h) + Mathf.Abs(v));
 
+        GroundCheck();
+        if (isGrounded)
+        {
+            // 贴紧地面
+            ySpeed = -0.5f;
+        }
+        else
+        {
+            ySpeed += Physics.gravity.y * Time.deltaTime;
+        }
+        var velocity = moveDir * moveSpeed;
+        velocity.y = ySpeed;
+        
+        
+        characterController.Move(velocity * Time.deltaTime);
+        
         if (moveAmount > 0)
         {
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
             targetRotation = Quaternion.LookRotation(moveDir);
         }
         
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
         animator.SetFloat("MoveAmount", moveAmount, 0.2f, Time.deltaTime);
+    }
+
+    void GroundCheck()
+    {
+        isGrounded = Physics.CheckSphere(transform.TransformPoint(groundCheckOffset), groundCheckRadius, groundLayer);
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.TransformPoint(groundCheckOffset), groundCheckRadius);
     }
 }

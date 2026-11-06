@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         _invertXVal = (invertX) ? -1 : 1;
-        _invertYVal = (invertY) ? -1 : 1;
+        _invertYVal = (invertY) ? 1 : -1;
         
         _rotationX += Input.GetAxis("Mouse Y") * _invertYVal * rotationSpeed;
         _rotationX =  Mathf.Clamp(_rotationX, minVerticalAngle, maxVerticalAngle);
