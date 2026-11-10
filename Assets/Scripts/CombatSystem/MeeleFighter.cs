@@ -11,6 +11,7 @@ public class MeeleFighter : MonoBehaviour
     [SerializeField] private List<AttackData> attacks;
     
     BoxCollider swordCollider;
+    SphereCollider leftHandCollider, rightHandCollider, leftFootCollider, rightFootCollider;
     
     private Animator _animator;
     private AttackState attackState;
@@ -27,7 +28,12 @@ public class MeeleFighter : MonoBehaviour
         if (sword != null)
         {
             swordCollider = sword.GetComponent<BoxCollider>();
-            swordCollider.enabled = false;
+            leftHandCollider  = _animator.GetBoneTransform(HumanBodyBones.LeftHand).GetComponent<SphereCollider>();
+            rightHandCollider = _animator.GetBoneTransform(HumanBodyBones.RightHand).GetComponent<SphereCollider>();
+            leftFootCollider = _animator.GetBoneTransform(HumanBodyBones.LeftFoot).GetComponent<SphereCollider>();
+            rightFootCollider = _animator.GetBoneTransform(HumanBodyBones.RightFoot).GetComponent<SphereCollider>();
+            
+            DisableAllColliders();
         }
     }
 
@@ -67,7 +73,7 @@ public class MeeleFighter : MonoBehaviour
                 if (progressTime >= attacks[comboCount].ImpactStartTime)
                 {
                     attackState = AttackState.Impact;
-                    swordCollider.enabled = true;
+                    EnableHitbox(attacks[comboCount]);
                 }
             }
             else if(attackState == AttackState.Impact)
@@ -75,7 +81,7 @@ public class MeeleFighter : MonoBehaviour
                 if (progressTime >= attacks[comboCount].ImpactEndTime)
                 {
                     attackState = AttackState.Cooldown;
-                    swordCollider.enabled = false;
+                    DisableAllColliders();
                 }
             }
             else if (attackState == AttackState.Cooldown)
@@ -117,5 +123,38 @@ public class MeeleFighter : MonoBehaviour
         var animState = _animator.GetNextAnimatorStateInfo(1);
         yield return new WaitForSeconds(animState.length * 0.8f);
         InAction = false;
+    }
+
+    void EnableHitbox(AttackData attack)
+    {
+        switch (attack.Hitbox)
+        {
+            case AttackHitbox.LeftFoot:
+                leftFootCollider.enabled = true;
+                break;
+            case AttackHitbox.RightFoot:
+                rightFootCollider.enabled = true;
+                break;
+            case AttackHitbox.LeftHand:
+                leftHandCollider.enabled = true;
+                break;
+            case AttackHitbox.RightHand:
+                rightHandCollider.enabled = true;
+                break;
+            case AttackHitbox.Sword:
+                swordCollider.enabled = true;
+                break;
+            default:
+                break;
+        }
+    }
+    
+    void DisableAllColliders()
+    {
+        swordCollider.enabled = false;
+        leftHandCollider.enabled = false;
+        rightHandCollider.enabled = false;
+        leftFootCollider.enabled = false;
+        rightFootCollider.enabled = false;
     }
 }

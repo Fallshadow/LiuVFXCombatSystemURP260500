@@ -232,7 +232,9 @@ MonoBehaviour:
   sword: {fileID: 919132148922387859}
   attacks:
   - {fileID: 11400000, guid: b4dbe3a40b334f044bdc98aba92cca5d, type: 2}
-  - {fileID: 11400000, guid: a63573523eeddd84eb3ee5b070790390, type: 2}
+  - {fileID: 11400000, guid: 929287fc76bb7154791317c7dbf57ebe, type: 2}
+  - {fileID: 11400000, guid: 26fb1c4232657cf498aca2ca06d9c39c, type: 2}
+  - {fileID: 11400000, guid: 173f24502b0cf8747bfd364b106c6da3, type: 2}
 --- !u!114 &330005190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +247,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953ae4fce96301343b942c700e850925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &444658938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2715566404302941441, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+  m_PrefabInstance: {fileID: 1233596753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &519602289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2084811680363313996, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+  m_PrefabInstance: {fileID: 1233596753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &519602291
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519602289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &558662199
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +385,24 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &579967547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -751476226918971245, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+  m_PrefabInstance: {fileID: 1233596753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &579967549
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579967547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &841232580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -424,9 +467,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: -2084811680363313996, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -2084811680363313996, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: -751476226918971245, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -751476226918971245, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
       propertyPath: m_Name
       value: Erika Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
@@ -579,6 +654,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
   m_PrefabInstance: {fileID: 1233596753}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1568853733
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444658938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1605414123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4728426434207774260, guid: 0fa42c35ce69c8d418b43c83c7878136, type: 3}
+  m_PrefabInstance: {fileID: 1233596753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1605414125
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605414123}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1629670396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,8 +1362,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653388315085}
   - component: {fileID: 5866666021600347063}
-  - component: {fileID: 5866666021600347064}
   - component: {fileID: 5866666021600347065}
+  - component: {fileID: 5866666021600347066}
   m_Layer: 8
   m_Name: EnemyPaladin
   m_TagString: Untagged
@@ -2776,20 +2882,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &5866666021600347064
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149466678135}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &5866666021600347065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2804,6 +2896,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 0}
   attacks: []
+--- !u!143 &5866666021600347066
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149466678135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.8
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &5901452235554884430
 Transform:
   m_ObjectHideFlags: 0

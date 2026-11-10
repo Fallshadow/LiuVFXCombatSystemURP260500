@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: GreatSwordSlash_2
   m_EditorClassIdentifier: 
   <AnimName>k__BackingField: GreatSwordSlash_2
-  <ImpactStartTime>k__BackingField: 0.17
-  <ImpactEndTime>k__BackingField: 0.22
+  <Hitbox>k__BackingField: 4
+  <ImpactStartTime>k__BackingField: 0.5
+  <ImpactEndTime>k__BackingField: 0.75
