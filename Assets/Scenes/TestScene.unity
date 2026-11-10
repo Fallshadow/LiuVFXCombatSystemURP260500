@@ -230,6 +230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 919132148922387859}
+  attacks:
+  - {fileID: 11400000, guid: b4dbe3a40b334f044bdc98aba92cca5d, type: 2}
+  - {fileID: 11400000, guid: a63573523eeddd84eb3ee5b070790390, type: 2}
 --- !u!114 &330005190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,14 +1030,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148922387859}
-  m_LocalRotation: {x: -0.5442958, y: -0.44785064, z: 0.45450348, w: 0.5446087}
-  m_LocalPosition: {x: 0.112, y: 0.047, z: 0.046}
+  m_LocalRotation: {x: -0.23746274, y: 0.6894733, z: 0.39499456, w: -0.5587643}
+  m_LocalPosition: {x: 0.272, y: 0, z: 0.057}
   m_LocalScale: {x: 100.000015, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1568853732}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -10.705, y: -89.63, z: 90.33}
+  m_LocalEulerAnglesHint: {x: -16.219, y: -93.793, z: 306.8}
 --- !u!4 &543450653388315085
 Transform:
   m_ObjectHideFlags: 0
@@ -2800,6 +2803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 0}
+  attacks: []
 --- !u!4 &5901452235554884430
 Transform:
   m_ObjectHideFlags: 0
