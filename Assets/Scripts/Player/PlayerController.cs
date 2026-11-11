@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         if (meeleFighter.InAction)
         {
-            animator.SetFloat("MoveAmount", 0);
+            animator.SetFloat("ForwardSpeed", 0);
             return;
         }
         
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
         
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-        animator.SetFloat("MoveAmount", moveAmount, 0.2f, Time.deltaTime);
+        animator.SetFloat("ForwardSpeed", moveAmount, 0.2f, Time.deltaTime);
     }
 
     void GroundCheck()

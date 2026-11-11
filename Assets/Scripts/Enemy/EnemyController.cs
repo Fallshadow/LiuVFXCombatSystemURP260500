@@ -31,10 +31,22 @@ public class EnemyController : MonoBehaviour
         StateMachine.ChangeState(stateDict[EnemyState.Idle]);
     }
 
+    private Vector3 prevPos;
+    
     private void Update()
     {
         StateMachine.Execute();
-        Animator.SetFloat("MoveAmount", NavAgent.velocity.magnitude / NavAgent.speed);
+        var deltaPos = transform.position - prevPos;
+        var velocity = deltaPos /  Time.deltaTime;
+        
+        float forwardSpeed = Vector3.Dot(velocity, transform.forward);
+        Animator.SetFloat("ForwardSpeed", forwardSpeed / NavAgent.speed, 0.2f, Time.deltaTime);
+        
+        float angle = Vector3.SignedAngle(transform.forward, velocity, Vector3.up);
+        float strafeSpeed = Mathf.Sin(angle * Mathf.Deg2Rad);
+        Animator.SetFloat("StrafeSpeed", strafeSpeed, 0.2f, Time.deltaTime);
+
+        prevPos = transform.position;
     }
 
     public void ChangeState(EnemyState state)
