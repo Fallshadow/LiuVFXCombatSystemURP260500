@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum EnemyState { Idle, Chase }
+public enum EnemyState { Idle, CombatMove }
 
 public class EnemyController : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
         
         stateDict = new Dictionary<EnemyState, State<EnemyController>>();
         stateDict[EnemyState.Idle] = GetComponent<IdleState>();
-        stateDict[EnemyState.Chase] = GetComponent<ChaseState>();
+        stateDict[EnemyState.CombatMove] = GetComponent<CombatMoveState>();
 
         StateMachine = new StateMachine<EnemyController>(this);
         StateMachine.ChangeState(stateDict[EnemyState.Idle]);
@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         StateMachine.Execute();
+        Animator.SetFloat("MoveAmount", NavAgent.velocity.magnitude / NavAgent.speed);
     }
 
     public void ChangeState(EnemyState state)
