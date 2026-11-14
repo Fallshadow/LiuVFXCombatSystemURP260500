@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public enum AICombatStates { Idle, Chase, Circling }
 
-public class CombatMoveState : State<EnemyController>
+public class EnemyCombatMoveState : State<EnemyController>
 {
     [SerializeField] private float circlingSpeed = 20f;
     [SerializeField] private float distanceToStand = 3f;
@@ -23,7 +23,7 @@ public class CombatMoveState : State<EnemyController>
     public override void Enter(EnemyController owner)
     {
         enemy =  owner;
-
+        enemy.CombatMovementTimer = 0f;
         enemy.NavAgent.stoppingDistance = 3f;
     }
 
@@ -83,6 +83,8 @@ public class CombatMoveState : State<EnemyController>
         {
             circlingCountDownTimer -= Time.deltaTime;
         }
+        
+        enemy.CombatMovementTimer += Time.deltaTime;
     }
 
     void StartChase()
@@ -109,6 +111,6 @@ public class CombatMoveState : State<EnemyController>
 
     public override void Exit()
     {
-        
+        enemy.CombatMovementTimer = 0f;
     }
 }
